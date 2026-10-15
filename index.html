@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="my">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff0f6" />
+    <title>For My Love 💗</title>
+
+    <!-- Tailwind CSS browser CDN: simple setup, no installation needed -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="min-h-screen">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div id="heart-layer" aria-hidden="true"></div>
+
+    <main
+      class="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12"
+    >
+      <header class="mb-8 flex items-center justify-between">
+        <a href="#" class="brand" aria-label="Birthday home"
+          ><span class="brand-heart">♥</span> little love note</a
+        >
+        <span class="top-tag">MADE WITH LOVE ✿</span>
+      </header>
+
+      <!-- HERO -->
+      <section id="hero" class="hero-card">
+        <div class="hero-sparkle sparkle-one">✦</div>
+        <div class="hero-sparkle sparkle-two">✧</div>
+        <div class="hero-content">
+          <div class="tiny-pill">
+            <span class="pulse-dot"></span> a little surprise for you
+          </div>
+          <p class="eyebrow">TO MY FAVORITE PERSON</p>
+          <h1>
+            Happy Birthday,<br /><span class="pink-script" id="hero-name"
+              >My Love</span
+            >
+            <span class="inline-block">♡</span>
+          </h1>
+          <p class="hero-copy">
+            Even if we're far apart, you're always close to my heart. I made
+            this little place just for you.
+          </p>
+          <button id="open-gift" class="primary-btn" type="button">
+            Open your surprise <span aria-hidden="true">♡</span>
+          </button>
+          <p class="micro-note">take your time · this is just for you</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="gift-box">
+            <div class="gift-lid"><div class="gift-bow"></div></div>
+            <div class="gift-body"><div class="gift-ribbon"></div></div>
+            <div class="gift-shadow"></div>
+          </div>
+          <span class="float-heart heart-a">♥</span>
+          <span class="float-heart heart-b">♡</span>
+          <span class="float-star star-a">✦</span>
+          <span class="float-star star-b">✧</span>
+        </div>
+      </section>
+
+      <!-- CONTENT REVEALS AFTER OPENING -->
+      <div id="surprise-content" class="hidden-section">
+        <section class="section-block intro-block">
+          <p class="eyebrow">A LITTLE PIECE OF MY HEART</p>
+          <h2>
+            For you, <span class="pink-script" id="section-name">my love</span>
+          </h2>
+          <p class="section-copy">
+            A few memories, a little letter, and one big wish for your special
+            day.
+          </p>
+        </section>
+
+        <section class="content-card memories-card">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">OUR LITTLE WORLD</p>
+              <h2>
+                Little moments, <span class="pink-script">big feelings</span>
+              </h2>
+            </div>
+            <span class="sticker">♡ memories ♡</span>
+          </div>
+          <div class="memory-grid">
+            <article class="memory-item">
+              <div class="memory-photo photo-one">
+                <span
+                  ><img
+                    class="memory-image"
+                    src="./photo_2026-10-15_22-48-20.jpg"
+                    alt="Our favorite memory" /></span
+                ><small>our favorite memory</small>
+              </div>
+              <p class="memory-caption">
+                The moments with you are my favorite.
+              </p>
+            </article>
+            <article class="memory-item">
+              <div class="memory-photo photo-two">
+                <span
+                  ><img
+                    class="memory-image"
+                    src="./IMG_20261015_221852_282.jpg"
+                    alt="Our favorite memory" /></span
+                ><small>your lovely smile</small>
+              </div>
+              <p class="memory-caption">
+                Your smile makes an ordinary day special.
+              </p>
+            </article>
+            <article class="memory-item">
+              <div class="memory-photo photo-three">
+                <span
+                  ><img
+                    class="memory-image"
+                    src="./photo_2026-10-15_22-44-11.jpg"
+                    alt="Our favorite memory" /></span
+                ><small>miles apart, close at heart</small>
+              </div>
+              <p class="memory-caption">
+                Different places, but one heart cheering for you.
+              </p>
+            </article>
+          </div>
+          <p class="edit-hint">
+            Tip: replace these pastel placeholders with your own photos —
+            instructions are in README.txt.
+          </p>
+        </section>
+
+        <section class="letter-card">
+          <div class="letter-top">
+            <span>✿</span><span>JUST FOR YOU</span><span>✿</span>
+          </div>
+          <div class="letter-inner">
+            <p class="eyebrow">OPEN WHEN YOU'RE READY</p>
+            <h2>A letter from <span class="pink-script">me to you</span></h2>
+            <p id="letter-text" class="letter-text">
+              Happy Birthday, my love. I wish I could be there beside you today,
+              but until that day comes, I hope this little surprise reminds you
+              how loved you are. Thank you for being part of my life. I’m always
+              cheering for you, from wherever I am. May this new year bring you
+              peace, laughter, good health, and beautiful moments. I love you. ♡
+            </p>
+            <p class="letter-sign">
+              Always yours, <span id="sender-name">Your Love</span> ♡
+            </p>
+          </div>
+        </section>
+
+        <section class="content-card video-card">
+          <div class="video-heading">
+            <div class="video-icon">▶</div>
+            <div>
+              <p class="eyebrow">PRESS PLAY, MY LOVE</p>
+              <h2>Your birthday <span class="pink-script">video</span></h2>
+            </div>
+          </div>
+          <div id="video-placeholder" class="video-placeholder">
+            <div class="play-badge">▶</div>
+            <p>Your special video will live here</p>
+            <span
+              >Add your birthday video as <code>birthday-video.mp4</code></span
+            >
+          </div>
+          <video
+            id="birthday-video"
+            class="birthday-video hidden"
+            controls
+            playsinline
+            preload="metadata"
+          >
+            <source src="birthday-video.mp4" type="video/mp4" />
+            Your browser does not support video playback.
+          </video>
+          <p class="edit-hint">
+            If you add <code>birthday-video.mp4</code> beside index.html, the
+            video player will appear automatically.
+          </p>
+        </section>
+
+        <section class="wish-card">
+          <div class="wish-stars" aria-hidden="true">✦　✧　♡　✧</div>
+          <p class="eyebrow">MY WISH FOR YOU</p>
+          <h2>
+            May your days be as lovely
+            <span class="pink-script">as your heart.</span>
+          </h2>
+          <p>
+            No matter how many miles are between us, I'll keep finding little
+            ways to make you smile.
+          </p>
+          <button id="wish-button" class="secondary-btn" type="button">
+            Send a little love <span>♥</span>
+          </button>
+          <p id="wish-message" class="wish-message" aria-live="polite"></p>
+        </section>
+
+        <footer class="footer">
+          <div class="footer-heart">♥</div>
+          <p>Made with love, just for <span id="footer-name">you</span>.</p>
+          <small>One heart, two places, endless love.</small>
+        </footer>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
