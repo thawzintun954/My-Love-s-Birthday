@@ -733,3 +733,75 @@ code {
     opacity: 0;
   }
 }
+/* Love letter photo popup */
+.love-photo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(20, 5, 15, 0.78);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  animation: loveFadeIn 0.5s ease forwards;
+}
+
+.love-photo-card {
+  position: relative;
+  width: min(90vw, 700px);
+  max-height: 80vh;
+  padding: 10px;
+  border-radius: 18px;
+  background: #fff8f5;
+  box-shadow: 0 0 35px rgba(255, 105, 160, 0.45);
+  animation: lovePhotoPop 0.65s ease forwards;
+}
+
+.love-photo-card img {
+  display: block;
+  width: 100%;
+  max-height: calc(80vh - 20px);
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.love-photo-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #d94f87;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@keyframes loveFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes lovePhotoPop {
+  from {
+    transform: scale(0.75) translateY(20px);
+  }
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+.love-letter-image {
+  display: block;
+  width: 70%;
+  max-width: 1220px;
+  height: 45vh;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  margin: auto;
+}

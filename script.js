@@ -82,3 +82,114 @@ video.querySelector("source").addEventListener("error", () => {
   video.classList.add("hidden");
   videoPlaceholder.classList.remove("hidden");
 });
+// Background music
+const bgMusic = document.getElementById("bgMusic");
+document.addEventListener("DOMContentLoaded", () => {
+  bgMusic.play().catch(() => {
+    console.log("Autoplay Blocked by browser");
+  });
+});
+document.addEventListener(
+  "click",
+  () => {
+    if (bgMusic.paused) {
+      bgMusic.play().catch(console.error);
+    }
+  },
+  { one: true },
+);
+// Website ဖွင့်ပြီး 10 seconds အကြာမှာ သီချင်းဖွင့်မယ်
+setTimeout(() => {
+  if (video.paused && !bgMusic.ended) {
+    bgMusic.play().catch(() => {
+      console.log("Tap the page to start music.");
+    });
+  }
+}, 3000);
+
+// Birthday video ဖွင့်ရင် သီချင်းရပ်မယ်
+video.addEventListener("play", () => {
+  bgMusic.pause();
+});
+
+// Birthday video ပြီးသွားရင် သီချင်းပြန်ဖွင့်မယ်
+video.addEventListener("ended", () => {
+  if (!bgMusic.ended) {
+    bgMusic.play().catch(() => {});
+  }
+});
+
+// Birthday video ကို ပိတ်ပြီး hidden class ပြန်ထည့်ရင်
+// သီချင်းပြန်ဖွင့်မယ်
+const videoObserver = new MutationObserver(() => {
+  if (video.classList.contains("hidden") && video.paused && !bgMusic.ended) {
+    bgMusic.play().catch(() => {});
+  }
+});
+
+videoObserver.observe(video, {
+  attributes: true,
+  attributeFilter: ["class"],
+});
+// Birthday video play button
+videoPlaceholder.addEventListener("click", async () => {
+  videoPlaceholder.classList.add("hidden");
+  video.classList.remove("hidden");
+
+  try {
+    await video.play();
+  } catch (error) {
+    console.error("Video playback failed:", error);
+    video.classList.add("hidden");
+    videoPlaceholder.classList.remove("hidden");
+  }
+});
+// Love letter photo popup
+const loveButton = [...document.querySelectorAll("button")].find((button) =>
+  button.textContent.includes("Send a little love"),
+);
+
+function showLovePhoto() {
+  // Avoid opening duplicate popups
+  if (document.querySelector(".love-photo-overlay")) return;
+
+  // Keep your existing heart animation
+  if (typeof burstHearts === "function") {
+    burstHearts(60);
+  }
+
+  const overlay = document.createElement("div");
+  overlay.className = "love-photo-overlay";
+
+  overlay.innerHTML = `<div class="love-photo-card">
+      <button class="love-photo-close"
+        aria-label="Close photo">&times;</button>
+      <img src="./love-letter.jpg"
+        alt="A handwritten birthday letter for my love"
+                class="love-letter-image"
+>
+    </div>`;
+
+  document.body.appendChild(overlay);
+
+  const closePhoto = () => overlay.remove();
+
+  overlay
+    .querySelector(".love-photo-close")
+    .addEventListener("click", closePhoto);
+
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) closePhoto();
+  });
+
+  document.addEventListener("keydown", function handleEscape(event) {
+    if (event.key === "Escape") {
+      closePhoto();
+      document.removeEventListener("keydown", handleEscape);
+    }
+  });
+}
+
+if (loveButton) {
+  loveButton.addEventListener("click", showLovePhoto);
+}
